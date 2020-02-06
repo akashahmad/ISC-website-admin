@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
+import cookie from 'react-cookies'
 // SideNav
 import Sidenav from './Components/Sidenav/sidenav'
 // Dashboard
@@ -72,7 +73,17 @@ import ViewTamplates from './Components/Templates/ViewTemplates/viewtemplates'
 // Files
 import EditFiles from './Components/Files/EditFile/editFile'
 import Viewfiles from './Components/Files/ViewFiles/viewFiles'
-const AllRouters = () => {
+const AllRouters = (props) => {
+    let {history, location} = props;
+    useEffect(() => {
+        let token = cookie.load("token");
+        console.log("Routetoken",token);
+        if (!token) {
+            setTimeout(() => {
+                history.push("/signin");
+            }, 100);
+        }
+    }, [location.pathname]);
     return (
         <div className="main-routes-div is-flex">
             {/* SideNav */}

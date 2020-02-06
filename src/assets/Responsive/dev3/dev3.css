@@ -1,0 +1,108 @@
+@media (max-width: 1400px) and (min-width: 1200px) {
+  .sidenav-Links {
+    width: 210px;
+  }
+  .edit-image-table {
+    height: 40px;
+  }
+  .delete-image-table {
+    height: 40px;
+  }
+  span.cursor-pointer.view-btn-of-table {
+    height: 40px;
+    width: 178px;
+  }
+  .main-table-heading {
+    width: 95%;
+  }
+  .viewAnnouncement-Table {
+    width: 95% !important;
+  }
+  .setting-table-main {
+    width: 95% !important;
+  }
+  .view-btn-of-table {
+    width: 139px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .sidenav-Links {
+    width: 210px;
+  }
+  .edit-image-table {
+    height: 40px;
+  }
+  .delete-image-table {
+    height: 40px;
+  }
+  span.cursor-pointer.view-btn-of-table {
+    height: 40px;
+    width: 178px;
+  }
+  .table-data-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .input-for-search-user-1 {
+    width: 114px !important;
+    margin-left: 53px !important;
+    height: 32px !important;
+    margin-top: 1px !important;
+  }
+  .select-input-responsive {
+    margin-left: 11px !important;
+  }
+  .input-for-search-user {
+    width: 123px !important;
+    margin-left: 13px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 992px) {
+  .sidenav-Links {
+    width: 210px;
+  }
+  select.select-option-of-adminstrator.fnt-poppins.mrg-left-50 {
+    margin-left: 10px;
+  }
+  select.select-option-of-adminstrator.fnt-poppins.mrg-left-15 {
+    width: 172px;
+  }
+  .edit-image-table {
+    height: 40px;
+  }
+  .delete-image-table {
+    height: 40px;
+  }
+  span.cursor-pointer.view-btn-of-table {
+    height: 40px;
+    width: 178px;
+  }
+  .table-data-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .input-for-search-user {
+    width: 90px !important;
+    width: 114px !important;
+    margin-left: -8px !important;
+    height: 32px !important;
+    margin-top: 1px !important;
+  }
+  .input-for-search-user-1 {
+    width: 114px !important;
+    margin-left: 53px !important;
+    height: 32px !important;
+    margin-top: 1px !important;
+  }
+  .select-input-responsive {
+    margin-left: 11px;
+  }
+  .table-row-of-head th {
+    padding: 9px;
+  }
+}
+/*# sourceMappingURL=dev3.css.map */

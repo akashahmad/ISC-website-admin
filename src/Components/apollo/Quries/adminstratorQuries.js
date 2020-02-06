@@ -5,7 +5,7 @@ export const ADMIN_DASHBOARD= gql`
     admins{
         Id
         Email
-        
+        Name
     }
 }
 `;

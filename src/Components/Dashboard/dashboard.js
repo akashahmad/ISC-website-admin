@@ -1,17 +1,24 @@
-import React,{useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import Image1 from '../../assets/Images/larki.jpg'
 import { withRouter } from 'react-router-dom'
 import Style from './style'
 import ReactPaginate from "react-paginate";
 import { useQuery } from '@apollo/react-hooks';
-import { ADMIN_DASHBOARD } from '../apollo/Quries/dashboardQurie'
-const Dashboard = () => {
-  console.log("tests");
+import { ADMIN_DASHBOARD } from '../apollo/Quries/adminstratorQuries'
+import Loader from '../commonComponents/Loader/loader'
 
+const Dashboard = ({Name}) => {
+
+  // const { loading, error, data } = useQuery(ADMIN_DASHBOARD);
   const {loading, error, data} = useQuery(ADMIN_DASHBOARD, { context: { clientName: "second" } });
+  const [total,setTotal]=useState("");
+  console.log("test", data);
+  
   useEffect(()=>{
-    console.log("test",data);
-  },[data])
+    setTotal(data);
+  },[])
+  console.log(total);
+  if (loading) return <Loader/>;
 
   return (
 
@@ -31,9 +38,8 @@ const Dashboard = () => {
               <div className="Form-section-startup">
                 <div className="has-margin-bottom-20 extra-div">
                 </div>
-                {/* Dashboard  Campaign cards start here      */}
+                {/* { Dashboard  Campaign cards start here      */}
                 {/* <first card */}
-
                 <div className=" dashboard-main-cards-div flex-row ">
                   <div className="dash-board-cards mrg-left-20 $White-color">
                     <div className="dashboard-card-headr ">

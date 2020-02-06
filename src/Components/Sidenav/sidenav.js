@@ -41,10 +41,10 @@ const Sidenav = (props) => {
         let age = localStorage.getItem("age");
         cookie.remove('token', {
             maxAge: parseInt(age),
-            path: "/signin"
+            path: "/"
         });
         localStorage.removeItem("age");
-        history.push("/signin");
+        history.push("/");
     };
     return (
         <>

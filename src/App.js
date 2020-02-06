@@ -6,24 +6,20 @@ import './assets/Style/Style.scss'
 import 'bulma-helpers/css/bulma-helpers.min.css'
 import AllRoutes from './Routes'
 import Signin from './Components/Signin/signin'
-import {ApolloProvider} from '@apollo/react-hooks';
 import WrapRootElement from './Components/apollo/wrap-root-element'
 import cookie from 'react-cookies'
 
 const App = (props) => {
-    let { history, location } = props;
 
+    let { history, location } = props;
     useEffect(() => {
-        let token = cookie.load("token");
-        if (token) {
-            if (location.pathname.indexOf("signin") !== -1) {
+        setTimeout(() => {
+            let token = cookie.load("token");
+            if (!token) {
                 history.push("/signin");
             }
-            else if(location.pathname.indexOf("/") !== -1){
-                history.push("/");
-            }
-        }
-    }, [])
+        }, 1000);
+    }, [location.pathname])
     return (
         <WrapRootElement>
             <Switch>

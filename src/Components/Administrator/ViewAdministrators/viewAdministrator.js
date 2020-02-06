@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Editlogo from '../../../assets/Images/edit.svg'
 import Deletelogo from '../../../assets/Images/delete.svg'
 import { withRouter } from 'react-router-dom';
 import ReactPaginate from "react-paginate";
-
+import { useQuery } from '@apollo/react-hooks';
+import { ADMIN_DASHBOARD } from '../../apollo/Quries/adminstratorQuries'
+import Loader from '../../commonComponents/Loader/loader'
 const ViewAdministrator = (props) => {
     let { history } = props;
+    const { loading, error, data } = useQuery(ADMIN_DASHBOARD);
+    // Loader
+    if (loading) return <Loader/> 
 
     return (
         <>
@@ -41,19 +46,21 @@ const ViewAdministrator = (props) => {
                                 </tr>
                             </thead>
                             <tbody className="table-of-data">
-                                <tr className="table-row-data-of-body fnt-poppins">
-                                    <td>Excellence in Learning & Development Form</td>
-                                    <td>03-18-2019</td>
-                                    <td>09-03-2019</td>
-                                    <td>sub view</td>
-                                    <td>
-                                        <div style={{ display: "flex" }}>
-                                            <img onClick={() => history.push("/edit-administrator")} className="cursor-pointer edit-image-table" alt="edit-button" src={Editlogo} />
-                                            <img className="delete-image-table" alt="delete-button" src={Deletelogo} />
-                                            <span onClick={() => history.push("/admin-information")} className="cursor-pointer view-btn-of-table hgt-setng">View Details</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {data && data.admins.map(sin =>
+                                    <tr className="table-row-data-of-body fnt-poppins">
+                                        <td>{sin.Name}</td>
+                                        <td>{sin.Email}</td>
+                                        <td>09-03-2019</td>
+                                        <td>sub view</td>
+                                        <td>
+                                            <div style={{ display: "flex" }}>
+                                                <img onClick={() => history.push("/edit-administrator")} className="cursor-pointer edit-image-table" alt="edit-button" src={Editlogo} />
+                                                <img className="delete-image-table" alt="delete-button" src={Deletelogo} />
+                                                <span onClick={() => history.push("/admin-information")} className="cursor-pointer view-btn-of-table hgt-setng">View Details</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )}
                                 <tr className="table-footer">
                                     <td>Total</td>
                                     <td></td>
@@ -61,6 +68,7 @@ const ViewAdministrator = (props) => {
                                     <td></td>
                                     <td>Number</td>
                                 </tr>
+
                             </tbody>
                         </table>
                         <div className="has-margin-top-40">
