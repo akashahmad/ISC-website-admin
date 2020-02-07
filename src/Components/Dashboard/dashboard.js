@@ -3,31 +3,25 @@ import Image1 from '../../assets/Images/larki.jpg'
 import { withRouter } from 'react-router-dom'
 import Style from './style'
 import ReactPaginate from "react-paginate";
-import { useQuery } from '@apollo/react-hooks';
-import { ADMIN_DASHBOARD } from '../apollo/Quries/adminstratorQuries'
+import { useQuery} from '@apollo/react-hooks';
+import { ADMIN_DASHBOARD } from '../apollo/Quries/dashboardQurie'
 import Loader from '../commonComponents/Loader/loader'
 
-const Dashboard = ({Name}) => {
+const Dashboard = () => {
 
-  // const { loading, error, data } = useQuery(ADMIN_DASHBOARD);
-  const {loading, error, data} = useQuery(ADMIN_DASHBOARD, { context: { clientName: "second" } });
-  const [total,setTotal]=useState("");
-  console.log("test", data);
+  // const {loading, error, data} = useQuery(ADMIN_DASHBOARD, { context: { clientName: "second" } });
+  const { loading, data } = useQuery(ADMIN_DASHBOARD);
   
-  useEffect(()=>{
-    setTotal(data);
-  },[])
-  console.log(total);
-  if (loading) return <Loader/>;
+  
+
+  if (loading) return <Loader />;
 
   return (
-
     <div className="container-fluid Table-for-administrator-main-div">
       {/* header */}
       <div className="header-of-viewAdministrator">
         <h6 className="heading6-of-header fnt-poppins">Dashboard</h6>
       </div>
-
       {/* Table of Administrator  */}
       <div className="container">
         <form>
@@ -49,12 +43,12 @@ const Dashboard = ({Name}) => {
                     <div className="card-inner-main-div d-flex flex-row">
                       <div className="card-left-text  ">
                         <h1 className="mrg-left-60 mrg-top-30 fnt-size-20 fnt-poppins fnt-weight-400 dashboard-reesposive-data ">Today</h1>
-                        <p className="mrg-left-70 mrg-top-20  fnt-poppins card-number-styling number-data-responsive">105</p>
+                        <p className="mrg-left-70 mrg-top-20  fnt-poppins card-number-styling number-data-responsive">{data.adminDashboard.TotalSupportToday}</p>
                       </div>
                       <div className="dashboard-cards-min-line mrg-top-10 "></div>
                       <div className="card-right-text">
                         <h1 className="mrg-left-45 mrg-top-30 fnt-size-20 fnt-poppins fnt-weight-400 dashboard-reesposive-data">Last Week</h1>
-                        <p className=" mrg-left-70 mrg-top-20  fnt-poppins card-number-styling number-data-responsive">1105</p>
+                        <p className=" mrg-left-70 mrg-top-20  fnt-poppins card-number-styling number-data-responsive">{data.adminDashboard.TotalSupportLastWeek}</p>
                       </div>
                     </div>
                   </div>

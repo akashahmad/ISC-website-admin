@@ -77,7 +77,6 @@ const AllRouters = (props) => {
     let {history, location} = props;
     useEffect(() => {
         let token = cookie.load("token");
-        console.log("Routetoken",token);
         if (!token) {
             setTimeout(() => {
                 history.push("/signin");
