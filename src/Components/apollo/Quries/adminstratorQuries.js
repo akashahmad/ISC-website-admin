@@ -6,6 +6,8 @@ export const ADMIN_DASHBOARD= gql`
         Id
         Email
         Name
+        Status
+        RoleId
     }
 }
 `;

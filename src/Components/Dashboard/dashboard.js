@@ -11,8 +11,8 @@ const Dashboard = () => {
 
   // const {loading, error, data} = useQuery(ADMIN_DASHBOARD, { context: { clientName: "second" } });
   const { loading, data } = useQuery(ADMIN_DASHBOARD);
-  
-  
+    
+
 
   if (loading) return <Loader />;
 
