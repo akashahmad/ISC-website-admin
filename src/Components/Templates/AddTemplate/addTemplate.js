@@ -34,6 +34,7 @@ const AddTemplate = (props) => {
         })
     }, [])
 
+    // method for creating a template
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
     const onSubmit = (event) => {
@@ -77,6 +78,7 @@ const AddTemplate = (props) => {
         }
     }
 
+    // methods for variables to change on bassis of tempelate selection
     const variablesHandler = (obj) => {
         switch (obj) {
             case "": {

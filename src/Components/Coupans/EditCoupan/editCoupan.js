@@ -22,6 +22,7 @@ const EditCoupan = (props) => {
         setCode(data && data.singleCouponById && data.singleCouponById.Coupon_code ? data.singleCouponById.Coupon_code : "");
     }, [data])
 
+    // method to display coupan code  
     const coupanCodeData = (value) => {
         setCode(value);
         let duplicateData = { ...renderData }
@@ -29,6 +30,7 @@ const EditCoupan = (props) => {
         setRenderData({ ...duplicateData });
     }
 
+    // method to edit coupans
     const update = (event) => {
         event.preventDefault();
         setBtnText("Updating...")

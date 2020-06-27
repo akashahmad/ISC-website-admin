@@ -17,12 +17,14 @@ const CompaignDetails = (props) => {
     const { loading, data } = useQuery(SINGLE_CAMPAIGN(id), { context: { clientName: "second" } });
     const [getSingleCampaign, setGetSingleCampaign] = useState()
     const [renderData, setRenderData] = useState("");
+
+    // start date and dateDate
     let startDate = data && data.SingleCampaign && data.SingleCampaign.StartDate;
     startDate = standardDate(startDate).standardDate;
-
     let endDate = data && data.SingleCampaign && data.SingleCampaign.EndDate;
     endDate = standardDate(endDate).standardDate;
 
+    // get all data and store in state to display
     useEffect(() => {
         setGetSingleCampaign(data && data.SingleCampaign);
     }, [data])

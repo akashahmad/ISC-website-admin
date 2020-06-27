@@ -5,11 +5,9 @@ import { SINGLE_CAMPAIGN } from '../../apollo/Quries/singleCampaign'
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { campaignBanner_baseurl, campaignLogo_baseurl } from '../../../config'
 import { getParams } from '../../functions'
-// import Loader from '../../commonComponents/Loader/loader'
 import { EDIT_CAMPAIGN } from '../../apollo/Mutations/updateCampaign'
 import axios from 'axios'
 import { apiPath } from '../../../config'
-// import ImageLoader from '../../../assets/Images/loader.gif'
 import ContentLoader from 'react-content-loader'
 import Cookie from 'react-cookies'
 
@@ -26,9 +24,11 @@ const CompaignDetails = (props) => {
     const [color, setColor] = useState("");
     const [secondaryColor, setSecondaryColor] = useState("");
     const [tertiary, setTertiaryColor] = useState("");
-
+    
+    // selected CampaignType
     let selectedCampaign = data && data.SingleCampaign && data.SingleCampaign.CampaignType;
 
+    // states for editing campaign
     const [editData] = useMutation(EDIT_CAMPAIGN);
     const [renderData, setRenderData] = useState("");
     const [hideShowColors, setHideShowColors] = useState(false)
@@ -45,6 +45,7 @@ const CompaignDetails = (props) => {
         setLogoImg(data && data.SingleCampaign && data.SingleCampaign.Logo);
     }, [data])
 
+    // method for Banner Image 
     const uploadProductImage = (event, index) => {
         const file = event.target.files[0];
         setBannerImg("Loading");
@@ -62,6 +63,7 @@ const CompaignDetails = (props) => {
             });
     };
 
+    // method for uploading overlay image
     const uploadOverlayImage = (event) => {
         const file = event.target.files[0];
         setLogoImg("Loading");
@@ -79,27 +81,7 @@ const CompaignDetails = (props) => {
             });
     };
 
-    // const uploadOverlayImage = (event, index) => {
-    //     const file = event.target.files[0];
-    //     getBase64(file).then(
-    //         data => {
-    //             let final = {
-    //                 imageFile: data,
-    //             };
-    //             axios.post(apiPath + "/uploadLogo", final).then(res => {
-    //                 let duplicateImage = [...logo]
-    //                 duplicateImage[index] = res.data.imageUrl;
-    //                 setRenderData(duplicateImage);
-    //             });
-    //         });
-    // };
-    // const addVariation = () => {
-    //     let duplicateVariation = [...logo]
-    //     duplicateVariation.push("")
-    //     setLogo(duplicateVariation);
-    // }
     let token = Cookie.load("token");
-
     const getBase64 = (file) => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -109,6 +91,7 @@ const CompaignDetails = (props) => {
         });
     };
 
+    // method for editing colors
     const displayHide = () => {
         if (hideShowColors === true) {
             setHideShowColors(false)
@@ -120,6 +103,7 @@ const CompaignDetails = (props) => {
         }
     }
 
+    // method for edit campaign
     const updateCampaign = (event) => {
         event.preventDefault();
         let stDate = new Date(renderData && renderData.StartDate)

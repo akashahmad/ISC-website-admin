@@ -24,6 +24,7 @@ const AddSetting = (props) => {
         })
     }, [])
 
+    // method for createSetting
     const createSetting = (event) => {
         event.preventDefault();
         setButtonText("Creating...");

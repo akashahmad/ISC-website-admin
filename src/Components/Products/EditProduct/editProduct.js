@@ -23,7 +23,7 @@ const EditProduct = (props) => {
     const [buttonText, setButtonText] = useState("Update")
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
-    const [productImg,setProductImg]=useState("");
+    const [productImg, setProductImg] = useState("");
 
     useEffect(() => {
         let duplicateData = data && data.getproductbyId ? { ...data.getproductbyId } : {}
@@ -38,6 +38,7 @@ const EditProduct = (props) => {
         setProductImg(data && data.getproductbyId && data.getproductbyId.image);
     }, [data, data && data.getproductbyId])
 
+    // method for uploading productImg
     const uploadProductImage = (event, index) => {
         const file = event.target.files[0];
         setProductImg("Loading");
@@ -48,7 +49,6 @@ const EditProduct = (props) => {
                     imageTitle: file.name.split('.').slice(0, -1).join('.').replace(/[^a-zA-Z ]/g, "").replace(/\s+/g, '-').toLowerCase()
                 };
                 axios.post(apiPath + '/uploadProductMedia', final).then(res => {
-                    // setImage(res.data.imageUrl);
                     let duplicateProducts = { ...renderData };
                     duplicateProducts.image = res.data.imageUrl;
                     setRenderData({ ...duplicateProducts })
@@ -66,12 +66,14 @@ const EditProduct = (props) => {
         });
     };
 
+    // method for adding more than one variation
     const addVariation = () => {
         let duplicateVariation = [...variation]
         duplicateVariation.push({ name: "", value: "" })
         setVariation(duplicateVariation);
     }
 
+    // method for editing prodcut
     const editData = (event) => {
         event.preventDefault();
         setButtonText("Updating...")
@@ -94,9 +96,9 @@ const EditProduct = (props) => {
                 variation: duplicateVariation ? JSON.stringify(duplicateVariation) : JSON.stringify([])
             }
         }).then(res => {
-            setButtonText("Updated")
+            setButtonText("Updated");
         }).catch(error => {
-            setButtonText("Update")
+            setButtonText("Update");
         })
     }
 
@@ -121,7 +123,7 @@ const EditProduct = (props) => {
                                             {productImg ?
                                                 <div className="store-front-image"
                                                     style={{
-                                                        backgroundImage: `url(${productImg !=="Loading"  ? productImage_BaseUrl + renderData.image : require('../../../assets/Images/main-loader.gif')})`,
+                                                        backgroundImage: `url(${productImg !== "Loading" ? productImage_BaseUrl + renderData.image : require('../../../assets/Images/main-loader.gif')})`,
                                                         height: "100px",
                                                         backgroundSize: "contain",
                                                         backgroundRepeat: "no-repeat",

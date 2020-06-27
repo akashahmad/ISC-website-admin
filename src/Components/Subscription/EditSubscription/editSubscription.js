@@ -21,6 +21,7 @@ const EditSubscription = (props) => {
         setRenderData(data && data.getsinglemembership ? { ...data.getsinglemembership } : "")
     }, [data, data && data.getsinglemembership])
 
+    // method for editing subscription
     const updateUser = (event) => {
         event.preventDefault();
         setButtonText("Updating...")

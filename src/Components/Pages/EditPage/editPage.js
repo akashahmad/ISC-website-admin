@@ -18,6 +18,7 @@ const EditPage = (props) => {
     const [joditvalue, setJoditValue] = useState("");
     const [joditContent, setJoditContent] = useState("");
 
+    // method for updating data
     const updateUser = (event) => {
         event.preventDefault();
         setButtonText("Updating...")
@@ -37,13 +38,12 @@ const EditPage = (props) => {
         })
     }
 
-
-
     useEffect(() => {
         setRenderData(data && data.singlewebpages ? { ...data.singlewebpages } : {});
         setJoditValue(data && data.singlewebpages && data.singlewebpages.pageContent);
     }, [data])
 
+    // method for editing ck editor data
     const onChangeEditor = (value) => {
         setJoditContent(value);
     }

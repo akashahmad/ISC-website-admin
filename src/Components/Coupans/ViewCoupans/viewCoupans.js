@@ -22,6 +22,7 @@ const ViewCoupan = (props) => {
     const [page, setPage] = useState(1);
     const [deleteSingleCoupan] = useMutation(DELETE_COUPON)
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/coupans?page=" + (parseInt(value.selected) + 1));
@@ -38,6 +39,7 @@ const ViewCoupan = (props) => {
         })
     }
 
+    // method to get all data
     useEffect(() => {
         coupons({
             variables: {
@@ -52,6 +54,7 @@ const ViewCoupan = (props) => {
         })
     }, [])
 
+    // method for deleteCoupon
     const deleteCoupon = (Id) => {
         deleteSingleCoupan({
             variables: {

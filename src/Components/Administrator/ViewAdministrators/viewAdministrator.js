@@ -21,11 +21,13 @@ const ViewAdministrator = (props) => {
     const [adminStatus, setAdminStatus] = useState("")
     const [search, setSearch] = useState([]);
 
+    // method for search Name
     const searchHandler = (value) => {
         let resultData = users ? users.filter(sin => sin.Name.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
-        setSearch(resultData)
+        setSearch(resultData);
     }
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/administrator?page=" + (parseInt(value.selected) + 1));
@@ -60,6 +62,7 @@ const ViewAdministrator = (props) => {
         })
     }, [])
 
+    // method for deleting data
     const deleteAdminData = (id) => {
         deleteAdmin({
             variables: {
@@ -71,6 +74,7 @@ const ViewAdministrator = (props) => {
         })
     }
 
+    // method for selection to searching data 
     const typeHandler = (value) => {
         switch (value) {
             case "": {
@@ -188,7 +192,7 @@ const ViewAdministrator = (props) => {
                                                 : ""}
                                             {single && single.RoleId == 3 ?
                                                 <div>
-                                                    <td>{single && single.RoleId == 3 ? "Creater" : ""}</td> 
+                                                    <td>{single && single.RoleId == 3 ? "Creater" : ""}</td>
                                                 </div>
                                                 : ""}
                                             <td>

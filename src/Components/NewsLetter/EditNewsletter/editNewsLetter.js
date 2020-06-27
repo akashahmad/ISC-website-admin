@@ -45,22 +45,14 @@ const EditNewsletter = (props) => {
     let stDate = new Date(dateFormate);
 
     useEffect(() => {
-        // let duplicateSelectedIntrestedIds = data && data.singlenewsletter && data.singlenewsletter.interestedIds
-        // let duplicateAllIntrestedData = data && data.getAllIntersts
-        // duplicateSelectedIntrestedIds = duplicateSelectedIntrestedIds && duplicateSelectedIntrestedIds.map(single => {
-        //     let obj = duplicateAllIntrestedData.find(sin => sin.id == single.interestId)
-        //     duplicateAllIntrestedData = duplicateAllIntrestedData.filter(sin => sin.id != single.interestId)
-        //     return obj
-        // })
-        // setSelectedData(duplicateSelectedIntrestedIds)
         setInterestData(data && data.getAllIntersts);
-        console.log("data && data.getAllIntersts",data && data.getAllIntersts)
         setRenderData(data && data.singlenewsletter ? { ...data.singlenewsletter } : {})
         setSelectTemplate(data && data.singlenewsletter && data.singlenewsletter.Template);
         setNewSearch(data && data.singlenewsletter && data.singlenewsletter.campaign_id ? data.singlenewsletter.campaignName : "")
         setDatetime(data && data.singlenewsletter && data.singlenewsletter.datetime ? data.singlenewsletter.datetime : "");
     }, [data])
 
+    // method for searching campaign
     let cancel;
     const onChageKeyword = (value) => {
         setNewSearch(value);
@@ -81,6 +73,7 @@ const EditNewsletter = (props) => {
         })
     }
 
+    // method for selecting campaign
     const onSelectCampaign = (value) => {
         setNewSearch(value.Name);
         let duplicateNewsletter = { ...renderData }
@@ -89,17 +82,12 @@ const EditNewsletter = (props) => {
         setSearchData([]);
     }
 
+    // method for editing campaign
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Upating...")
         let currentDate = new Date();
         currentDate = currentDate.toISOString();
-        // let interestIds = []
-        // if (selectedData) {
-        //     selectedData.forEach(single => {
-        //         interestIds.push(single.id)
-        //     })
-        // }
         updateNewsletter({
             variables: {
                 Id: parseInt(id),

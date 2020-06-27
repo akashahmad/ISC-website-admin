@@ -8,20 +8,23 @@ import Loader from '../../commonComponents/Loader/loader'
 import { getParams } from '../../functions'
 
 const AdminInformation = (props) => {
+
     let { history, match, location } = props;
     let path = getParams(location.search);
     let id = match.params && match.params.id ? match.params.id : ""
     const { loading, data } = useQuery(SINGLE_ADMIN(id))
     const [ipAddress, setIpAddress] = useState("");
-    console.log(data && data)
     let date = data && data.singleadminbyId && data.singleadminbyId.CreatedDate;
     date = standardDate(date).standardDate;
     let getDate = data && data.singleadminbyId && data.singleadminbyId.Activity && data.singleadminbyId.Activity.ModifiedDate;
     getDate = standardDate(date).standardDate;
     const publicIp = require('public-ip');
+
+    // Ip addrees
     (async () => {
         setIpAddress(await publicIp.v4());
     })();
+
     return (
         <>
             {!loading ?

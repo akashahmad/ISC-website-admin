@@ -24,6 +24,7 @@ const UpdateStoreFront = (props) => {
         setRenderData(data && data.singleStorefrontBySlug ? { ...data.singleStorefrontBySlug } : "")
     }, [data])
 
+    // method for editing storefront data
     let token = cookie.load("token");
     const onSubmit = (event) => {
         event.preventDefault();
@@ -43,8 +44,6 @@ const UpdateStoreFront = (props) => {
             setButtonText("Update")
         })
     }
-
-
 
     return (
         <>

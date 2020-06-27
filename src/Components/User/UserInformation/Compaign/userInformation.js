@@ -10,6 +10,7 @@ const Campaign = (props) => {
     let { history, id } = props;
     const { loading, data } = useQuery(SINGLE_CAMPAIGN(id))
     let date = data && data.getcampaignbyId && data.getcampaignbyId.CreatedDate;
+    // date
     date = standardDate(date).standardDate;
     const [singleCampaignstData, setSingleCampaignstData] = useState()
 

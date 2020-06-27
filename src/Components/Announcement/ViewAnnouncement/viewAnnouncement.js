@@ -21,11 +21,13 @@ const ViewAnnouncement = (props) => {
         setSearch(data && data.getannouncements)
     }, [data])
 
+    // method for searching title
     const searchHandler = (value) => {
         let resultData = announcement ? announcement.filter(sin => sin.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
         setSearch(resultData)
     }
 
+    // method for deleting data
     const deleteAnnouncements = (id) => {
         deleteannouncement({
             variables: {
@@ -74,24 +76,6 @@ const ViewAnnouncement = (props) => {
                                         {search && search.length !== 0 && search.map((single, index) =>
                                             <tr key={index} className="fnt-poppins background-white">
                                                 <td>{single.title}</td>
-                                                {/* {single && single.flag == 1 ?
-                                                    <td>
-                                                        <div className="switch-btn-of-tables">
-                                                            <label className="switch">
-                                                                <input type="checkbox" checked={single.flag} />
-                                                                <span className="slider"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    :
-                                                    <td>
-                                                        <div className="switch-btn-of-tables">
-                                                            <label className="switch">
-                                                                <input type="checkbox" />
-                                                                <span className="slider"></span>
-                                                            </label>
-                                                        </div>
-                                                    </td>} */}
                                                 {/* buttons  */}
                                                 <td>
                                                     <div className="appling-flex-btns">

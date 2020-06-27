@@ -73,6 +73,7 @@ const AddNewsletter = (props) => {
     //     setInterestData([...duplicateSelected]);
     // }
 
+    // method to search Campaign
     let cancel;
     const onChageKeyword = (value) => {
         setSelectedData(value.Id);
@@ -96,6 +97,7 @@ const AddNewsletter = (props) => {
             })
     }
 
+    // method for creating newsletter
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Creating...")
@@ -115,12 +117,6 @@ const AddNewsletter = (props) => {
             setButtonText("Create")
         }
         else {
-            // let interestIds = []
-            // if (searchData) {
-            //     searchData.forEach(single => {
-            //         interestIds.push(single.Id)
-            //     })
-            // }
             addNewsletter({
                 variables: {
                     name: name,
@@ -141,8 +137,6 @@ const AddNewsletter = (props) => {
             })
         }
     }
-
-    console.log("date", dateTime)
 
     return (
         <div className="container-fluid Table-for-administrator-main-div">

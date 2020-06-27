@@ -30,7 +30,7 @@ const AddUser = (props) => {
         })
     }, [])
 
-
+    // method for creating user
     const addUser = (event) => {
         event.preventDefault();
         let currentDate = new Date();

@@ -8,10 +8,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks'
 import { CAMPAIGN_CATEGORIES } from '../../apollo/Quries/campaignCategories';
 import publicIp from 'public-ip'
 import ipInt from 'ip-to-int'
-// import { getData, getCode, getName } from "country-list";
-// import ImageLoader from '../../../assets/Images/loader.gif'
 import cookie from 'react-cookies'
-// import { SELECT_STOREFRONT } from '../../apollo/Quries/userStoreFronts'
 import { getParams } from '../../functions'
 
 const CreateCompaign = (props) => {
@@ -47,12 +44,13 @@ const CreateCompaign = (props) => {
     const [country, setSelectCountry] = useState("")
     const [loader, setLoader] = useState(false)
 
-    const addImage = () => {
-        let duplicateImage = [...addMoreImage]
-        duplicateImage.push("")
-        setAddMoreImage(duplicateImage)
-    }
+    // const addImage = () => {
+    //     let duplicateImage = [...addMoreImage]
+    //     duplicateImage.push("")
+    //     setAddMoreImage(duplicateImage)
+    // }
 
+    // method for uploading product image
     const uploadProductImage = (event) => {
         const file = event.target.files[0];
         setBannerImage("Loading");
@@ -67,8 +65,7 @@ const CreateCompaign = (props) => {
             });
     };
 
-
-
+    // method for Overlay Image
     const uploadOverlayImage = (event) => {
         setLoader(true);
         const file = event.target.files[0];
@@ -93,6 +90,7 @@ const CreateCompaign = (props) => {
         });
     };
 
+    // method for selecting a campaign type
     const handeler = (value) => {
         switch (value) {
             case "Petition":
@@ -115,6 +113,7 @@ const CreateCompaign = (props) => {
         })
     }, [])
 
+    // method for creating a campaign
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Creating...")

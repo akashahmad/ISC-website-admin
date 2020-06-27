@@ -69,11 +69,9 @@ const EditTemplate = (props) => {
         }
     }, [data, data && data.singletemplate])
 
-
-
+    // method for variables on bassis of templates selection
     const variablesHandler = (obj) => {
         setCategory(obj);
-        console.log("obj",obj);
         switch (obj) {
             case "": {
                 setTemplatevariables("")
@@ -134,6 +132,7 @@ const EditTemplate = (props) => {
         setJoditContent(value);
     }
 
+    // method for editing template
     const updateUser = (event) => {
         event.preventDefault();
         setButtontext("Updating...")

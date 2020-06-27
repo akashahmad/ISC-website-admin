@@ -23,6 +23,7 @@ const ViewNewsletter = (props) => {
     const [page, setPage] = useState(1);
     const [deleteNewsletter] = useMutation(DELETE_NEWSLETTER);
 
+    // method for pagination
     const handlePageClick = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/newsletter?page=" + (parseInt(value.selected) + 1));
@@ -52,6 +53,7 @@ const ViewNewsletter = (props) => {
         })
     }, []);
 
+    // method for deleting newsletter
     const deletePages = (id) => {
         deleteNewsletter({
             variables: {
@@ -89,31 +91,23 @@ const ViewNewsletter = (props) => {
                                         <th>Name</th>
                                         <th>Template Name</th>
                                         <th>Status</th>
-                                        {/* <th>Scheduled Date And Time</th> */}
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="table-of-data">
                                     {data && data.length !== 0 && data.map((single, index) => {
-                                        console.log(single.datetime);
                                         return (
                                             <tr key={index} className="table-row-data-of-body fnt-poppins">
                                                 <td>{single.name ? single.name : "-"}</td>
                                                 <td>{single.Template ? single.Template && single.Template.Title : "-"}</td>
                                                 <td>{single.status ? single.status : "-"}</td>
-                                                {/* <td className="is-flex">
-                                                    <span>{single.datetime ? standardDate(parseInt(single.datetime)).standardDate : "-"}</span>
-                                                    <span className="has-margin-left-15">{single.datetime ? standardDate(parseInt(single.datetime)).time : "-"}</span>
-                                                </td> */}
                                                 <td>
-                                                    {/* {single && single.status == "Draft" ? */}
                                                     <div className="applying-flex">
                                                         <img onClick={() => history.push("/edit-newsletter/" + single.Id)} className="cursor-pointer edit-image-table" alt="edit-button" src={Editlogo} />
                                                         <img className="delete-image-table has-cursor-pointer" alt="delete-button" src={Deletelogo}
                                                             onClick={() => deletePages(single.Id)}
                                                         />
                                                     </div>
-                                                    {/* : ""} */}
                                                 </td>
                                             </tr>
                                         )

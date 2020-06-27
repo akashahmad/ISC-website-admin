@@ -13,6 +13,7 @@ const AddCoupan = (props) => {
     const [discount, setDiscount] = useState("");
     const [btnText, setBtnText] = useState("Create")
 
+    // method for creating coupan
     const onSubmit = (event) => {
         event.preventDefault();
         setBtnText("Creating...")

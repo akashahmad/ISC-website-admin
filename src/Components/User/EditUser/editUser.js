@@ -41,6 +41,7 @@ const EditUser = (props) => {
         setRenderData(duplicateData);
     }, [data, data && data.getuserbyId])
 
+    // method for upadteUser
     const updateUser = (event) => {
         event.preventDefault();
         if (hideShow == true && hidePassword == false) {

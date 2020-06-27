@@ -20,6 +20,7 @@ const EditAnnouncement = (props) => {
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
 
+    // method to edit announcement
     const editData = (event) => {
         event.preventDefault();
         setButtonText("Updating...")

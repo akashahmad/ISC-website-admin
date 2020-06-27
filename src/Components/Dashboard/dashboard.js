@@ -19,6 +19,7 @@ const Dashboard = (props) => {
   const [page, setPage] = useState(1);
   const [totalpage, setTotalPage] = useState(1);
 
+  // method for pagination
   const handlePageClick = (value) => {
     setPage(value.selected + 1);
     allCompagins({
@@ -34,6 +35,7 @@ const Dashboard = (props) => {
       })
   }
 
+  // get all data of campaigns and store in a states 
   useEffect(() => {
     allCompagins({
       variables: {
@@ -48,6 +50,7 @@ const Dashboard = (props) => {
       })
   }, []);
 
+  // type handler to search campaign types
   const typeHandler = (value) => {
     switch (value) {
       case "": {
@@ -296,7 +299,7 @@ const Dashboard = (props) => {
                             <h4 className="fnt-size-15 fnt-poppins heading-of-camp">{single.Name}</h4>
                             <p className="mrg-top-5 fnt-size-13 has-margin-bottom-10 fnt-poppins">{single.CategoryId ? single.CategoryId : "-"}</p>
                             <span className="Save-btn-of-form padding-of-btn resonsive-save-butten-cards fnt-poppins"
-                              onClick={() => window.open(single.campaign_made == "New" ? isupportcauseCampaign +"new-campaign/"+ single.Slug : isupportcauseCampaign +"campaign/"+ single.Slug)}
+                              onClick={() => window.open(single.campaign_made == "New" ? isupportcauseCampaign + "new-campaign/" + single.Slug : isupportcauseCampaign + "campaign/" + single.Slug)}
                             >{single.CampaignType}</span>
                           </div>
                         </div>

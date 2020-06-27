@@ -29,6 +29,7 @@ const AddProduct = (props) => {
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
 
+    // method for uploading product image
     const uploadProductImage = (event) => {
         const file = event.target.files[0];
         setImage("Loading");
@@ -53,11 +54,14 @@ const AddProduct = (props) => {
         });
     };
 
+    // method for adding more than one variation
     const addVariation = () => {
         let duplicateVariation = [...variation]
         duplicateVariation.push({ name: "", value: "" })
         setVariation(duplicateVariation);
     }
+
+    // method for creating a product
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Creating...");

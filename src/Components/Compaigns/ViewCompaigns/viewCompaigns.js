@@ -38,6 +38,7 @@ const ViewCompaign = (props) => {
     const [categoryId, setCategoryId] = useState();
     const [boosted, setBoosted] = useState("")
 
+    // method for pagination
     const handlePageClick = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/campaign?page=" + (parseInt(value.selected) + 1 ));
@@ -60,7 +61,7 @@ const ViewCompaign = (props) => {
         })
     }
 
-
+    // get all campaign data and store in states 
     useEffect(() => {
         getCampaign({
             variables: {
@@ -81,26 +82,7 @@ const ViewCompaign = (props) => {
         })
     }, [])
 
-    // useEffect(() => {
-    //     getCampaign({
-    //         variables: {
-    //             page: 1,
-    //             limit: 10,
-    //             CampaignType: "",
-    //             sort: sort,
-    //             Createduser: createdUser,
-    //             CategoryId: parseInt(categoryId),
-    //             Boosted: ""
-    //         }
-    //     }).then(res => {
-    //         setCampaign(res && res.data.allCampaignFilters && res.data.allCampaignFilters.campaigns ? res.data.allCampaignFilters.campaigns : [])
-    //         setTotalPages(res && res.data.allCampaignFilters && res.data.allCampaignFilters.totalPages ? res.data.allCampaignFilters.totalPages : [1])
-    //         setTotalCampaigns(res && res.data.allCampaignFilters && res.data.allCampaignFilters.totalCampaigns ? res.data.allCampaignFilters.totalCampaigns : [])
-    //         setSearch(res && res.data.allCampaignFilters && res.data.allCampaignFilters.campaigns ? res.data.allCampaignFilters.campaigns : [])
-    //     })
-    // }, [])
-
-    // campaignPackage
+    //search handler campaignPackage
     const campaignPackage = (value) => {
         switch (value) {
             case "": {
@@ -186,6 +168,7 @@ const ViewCompaign = (props) => {
         })
     }
 
+    // search handler of campgin type
     const typeHandler = (value) => {
         switch (value) {
             case "": {
@@ -263,8 +246,7 @@ const ViewCompaign = (props) => {
         }
     }
 
-
-
+    // search handler of hight support and lowest support
     const sortHandler = (value) => {
         switch (value) {
             case "": {
@@ -418,12 +400,6 @@ const ViewCompaign = (props) => {
                         </div>
                         <div className="Table-Header">
                             <h6 className="fnt-poppins">All Campaigns Record</h6>
-                            {/* <div className="input-styling-0f-compaigns"> */}
-                            {/* <input placeholder="From Date" type="date"
-                                    onChange={event => searchStartDate(event.target.value)}
-                                />
-                                <input placeholder="To Date" type="date" /> */}
-                            {/* </div> */}
                             <div>
                                 <input className="input-for-search fnt-poppins input-for-search-user" placeholder="Name"
                                     onChange={event => {
@@ -474,33 +450,6 @@ const ViewCompaign = (props) => {
                                     <option value="highestSupport">Highest Support</option>
                                     <option value="lowestSupport">Lowest Support</option>
                                 </select>
-                                {/* <select className="select-option-of-adminstrator fnt-poppins mrg-left-50">
-                                    <option>Select Coupan</option>
-                                    <option>NONPROFIT</option>
-                                    <option>SAJJAD10</option>
-                                    <option>Promo50</option>
-                                    <option>NAHID25</option>
-                                    <option>NONPROFIT50</option>
-                                    <option>AZEEM25</option>
-                                    <option>MUREED25</option>
-                                    <option>SAUD30</option>
-                                    <option>hadi2018</option>
-                                    <option>VEDANK</option>
-                                    <option>BEAUTY</option>
-                                    <option>LIBERIA</option>
-                                    <option>SOCIAL</option>
-                                    <option>PROMO_GIFT</option>
-                                    <option>RECRUITERS</option>
-                                    <option>Elizabeth</option>
-                                    <option>REGINA_PREMIUM_COUPON_30</option>
-                                    <option>DonateLifeMonth</option>
-                                    <option>AWARENESS</option>
-                                    <option>PROMO_NONPROFIT_CAC</option>
-                                    <option>AUTISM_MOMS</option>
-                                    <option>PANKAJ</option>
-                                    <option>Kristen20</option>
-                                    <option>PREMIUM_COUPON_ABDUL</option>
-                                </select> */}
                             </div>
                         </div>
                         {/* Table-Title */}

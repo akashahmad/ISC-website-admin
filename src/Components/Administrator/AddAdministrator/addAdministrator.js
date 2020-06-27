@@ -30,6 +30,7 @@ const AddAdministrator = (props) => {
         })
     }, [])
 
+    // function for creating admin
     const addAdmin = (event) => {
         event.preventDefault();
         let currentDate = new Date();
@@ -204,7 +205,7 @@ const AddAdministrator = (props) => {
                                     </div>
                                 </>
                             }
-                            {/* extra data */}
+                            {/* Buttons */}
                             <div className="btns-of-add mrg-left-60 mrg-top-30 fnt-poppins">
                                 <span className="cursor-pointer cancel-btn-of-form fnt-poppins"
                                     onClick={() => history.goBack("/administrator?page=" + path)}

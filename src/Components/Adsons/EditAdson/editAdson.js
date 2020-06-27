@@ -21,6 +21,7 @@ const EditAdson = (props) => {
         setRenderData(data && data.getAdsonbyId ? { ...data.getAdsonbyId } : "");
     }, [data, data && data.getAdsonbyId])
 
+    // method for editing adson
     const onSubmit = (event) => {
         event.preventDefault();
         editData({
@@ -29,12 +30,6 @@ const EditAdson = (props) => {
                 status: renderData.status,
                 place_on: parseInt(renderData.place_on),
                 type: renderData.type
-                // ad_text: adText,
-                // ad_button: adButton,
-                // ad_image: adImage,
-                // startdate: startDate,
-                // enddate: endDate,
-                // date_created: currentDate
             }
         }).then(res => {
             history.push("/adson")

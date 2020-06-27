@@ -10,7 +10,7 @@ const ViewDetails = (props) => {
     let { history, match } = props;
     let id = match.params && match.params.id ? match.params.id : "";
     const { loading, data } = useQuery(SINGLE_ADSONS(id))
-
+    // states for color package
     const [initial] = useState('#5e72e4');
     const [color, setColor] = useState({});
     return (

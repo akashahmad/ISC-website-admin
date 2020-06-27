@@ -12,10 +12,9 @@ const AddAnnouncement = (props) => {
     const [detail, setDetail] = useState("");
     const [link, setLink] = useState("");
     const [buttonText, setButtonText] = useState("Create");
-
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
-
+    // method for creating announcement
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Creating...");

@@ -23,10 +23,13 @@ const ViewProduct = (props) => {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState([]);
 
+    // method for searching name
     const searchHandler = (value) => {
         let resultData = data ? data.filter(sin => sin.Name.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
         setSearch(resultData)
     }
+
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/product?page=" + (parseInt(value.selected) + 1));
@@ -60,6 +63,7 @@ const ViewProduct = (props) => {
         })
     }, [])
 
+    // method for deleting product
     const deleteProducts = (Id) => {
         deleteProduct({
             variables: {

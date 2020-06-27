@@ -22,16 +22,14 @@ const EditAdministrator = (props) => {
     const [password, setPassword] = useState("");
     const [editData] = useMutation(UPDATE_ADMIN);
     const [buttonText, setButtonText] = useState("Update")
-
-
     let uid = uuid();
-
     useEffect(() => {
         let duplicateData = data && data.singleadminbyId ? { ...data.singleadminbyId } : {}
         setRenderData(duplicateData);
 
     }, [data, data && data.singleadminbyId])
 
+    // method for hide and show data of passwrod fields
     const hideShowPassword = () => {
         if (hidePassword == false) {
             setHidePassword(true);
@@ -41,7 +39,7 @@ const EditAdministrator = (props) => {
         }
     }
 
-
+    // function for editing admin information
     const updateUser = (event) => {
         event.preventDefault();
         if (hideShow == true && hidePassword == false) {
@@ -58,7 +56,6 @@ const EditAdministrator = (props) => {
                 setButtonText("Updated")
             })
         }
-
         else if (hideShow == true && hidePassword == true) {
             if (!password && !confirmPassword) {
                 setButtonText("Update")
@@ -85,7 +82,6 @@ const EditAdministrator = (props) => {
                 })
             }
         }
-
         else if (hideShow == false && hidePassword == false) {
             setButtonText("Updating...")
             editData({
@@ -248,9 +244,11 @@ const EditAdministrator = (props) => {
                                                             />
                                                         </div>
                                                     </div>
-                                                </div>}
+                                                </div>
+                                            }
                                         </div>
                                     }
+                                    {/* buttons */}
                                     <div className="btns-of-add mrg-left-60 mrg-top-30 fnt-poppins">
                                         <span className="cancel-btn-of-form fnt-poppins"
                                             onClick={() => history.goBack("/administrator?page=" + path)}

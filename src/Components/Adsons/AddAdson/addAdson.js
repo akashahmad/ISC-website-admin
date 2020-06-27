@@ -8,7 +8,7 @@ import { apiPath } from '../../../config'
 import { getParams } from '../../functions'
 
 const AddAdson = (props) => {
-    let { history , location } = props;
+    let { history, location } = props;
     let path = getParams(location.search);
     const [initial] = useState('#5e72e4');
     const [showHide, setShowHide] = useState(false);
@@ -27,6 +27,7 @@ const AddAdson = (props) => {
 
     let cancel;
 
+    // method to search campaign
     const onChageKeyword = (value) => {
         cancel && cancel();
         axios.post(
@@ -44,12 +45,11 @@ const AddAdson = (props) => {
             .then(res => {
                 console.log(res.data);
             })
-
     }
 
     let currentDate = new Date();
     currentDate = currentDate.toISOString();
-
+    // method for creating adson
     const onSubmit = (event) => {
         event.preventDefault();
         addAdson({
@@ -76,7 +76,7 @@ const AddAdson = (props) => {
             {/* header */}
             <div className="header-of-viewAdministrator">
                 <h6 className="heading6-of-header fnt-poppins">Add Adson</h6>
-                <button onClick={() => history.goBack("/adson?page="+path)} className="cursor-pointer header-btn-of-table fnt-poppins">Back</button>
+                <button onClick={() => history.goBack("/adson?page=" + path)} className="cursor-pointer header-btn-of-table fnt-poppins">Back</button>
             </div>
             {/* Table of Administrator  */}
             <form onSubmit={event => onSubmit(event)}>

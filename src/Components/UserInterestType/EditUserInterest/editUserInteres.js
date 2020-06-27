@@ -19,6 +19,7 @@ const EditUserIntrest = (props) => {
         setRenderData(data && data.singleInterestById ? { ...data.singleInterestById } : "");
     }, [data, data && data.singleInterestById])
 
+    // method for editing userIntrest
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Updating...")

@@ -14,6 +14,7 @@ const ViewAdson = (props) => {
     const { loading, data } = useQuery(USER_INTEREST)
     const [deleteUserInterest] = useMutation(DELETE_USER_INTEREST);
 
+    // method for deleting data
     const deleteAdsons = (id) => {
         deleteUserInterest({
             variables: {

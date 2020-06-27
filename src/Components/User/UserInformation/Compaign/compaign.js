@@ -17,9 +17,12 @@ const Campaign = (props) => {
     let id = match.params && match.params.id ? match.params.id : ""
     const { loading, data } = useQuery(SINGLE_USER(id));
     let date = data && data.getuserbyId && data.getuserbyId.CreatedDate;
+    // date
     date = standardDate(date).standardDate;
     let getDate = data && data.getuserbyId && data.getuserbyId.CreatedDate;
+    // time
     getDate = standardDate(getDate).time;
+    // Ip 
     const publicIp = require('public-ip');
     (async () => {
         setIpAddress(await publicIp.v4());

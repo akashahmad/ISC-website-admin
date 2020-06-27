@@ -19,15 +19,16 @@ const ViewCategories = (props) => {
     const [totalCategories, setTotalCategories] = useState("");
     const [totalPages, setTotalPages] = useState(1);
     const [page, setPage] = useState(1);
-    // const [show, setShow] = useState("");
     const [search, setSearch] = useState([]);
 
+    // method for search Name
     const searchHandler = (value) => {
         let resultData = data ? data.filter(sin => sin.Name.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
         setSearch(resultData);
         setTotalPages([1]);
     }
 
+    // method for pagination
     const handlePageClick = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/category?page=" + (parseInt(value.selected) + 1));
@@ -45,6 +46,7 @@ const ViewCategories = (props) => {
             })
     }
 
+    // get all data and set pagination as well in states
     useEffect(() => {
         categories({
             variables: {
@@ -59,6 +61,7 @@ const ViewCategories = (props) => {
         })
     }, []);
 
+    // method for deleting data
     const deleteCategories = (id) => {
         deleteCategory({
             variables: {
@@ -68,7 +71,6 @@ const ViewCategories = (props) => {
             if (window.confirm("Are you sure you want to delete Data"));
             window.location.replace("/category")
         })
-
     }
 
     return (

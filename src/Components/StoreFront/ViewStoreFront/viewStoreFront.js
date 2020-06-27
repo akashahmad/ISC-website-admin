@@ -28,6 +28,7 @@ const ViewStoreFront = (props) => {
         setSearch(resultData)
     }
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/storefront?page=" + (parseInt(value.selected) + 1));
@@ -46,6 +47,7 @@ const ViewStoreFront = (props) => {
         })
     }
 
+    // get all storefront data and store in states
     useEffect(() => {
         storeFront({
             variables: {
@@ -61,6 +63,7 @@ const ViewStoreFront = (props) => {
         })
     }, [])
 
+    // method for deleting data
     let token = cookie.load("token")
     const deleteSingleStoreFront = (id) => {
         deleteStoreFront({

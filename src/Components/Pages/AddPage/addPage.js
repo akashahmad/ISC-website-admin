@@ -25,6 +25,7 @@ const AddPage = (props) => {
         })
     }, [])
 
+    // method for creating page
     const addPage = (event) => {
         event.preventDefault();
         setBtnText("Creating...");

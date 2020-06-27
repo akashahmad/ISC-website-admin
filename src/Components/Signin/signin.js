@@ -19,6 +19,7 @@ const Signin = (props) => {
     const [error, setError] = useState("");
     const [btnText, setBtnText] = useState("Signin");
 
+    // method for authentication
     const userAuthentication = e => {
         e.preventDefault();
         if (!email || !validateEmail(email) || !password || password.length < 8) {

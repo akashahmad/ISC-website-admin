@@ -15,6 +15,7 @@ const EditSetting = (props) => {
     const [renderData, setRenderData] = useState("");
     const [buttonText, setButtonText] = useState("Update")
 
+    // method for editing 
     const updateUser = (event) => {
         event.preventDefault();
         setButtonText("Updating...")

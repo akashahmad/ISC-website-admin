@@ -8,8 +8,7 @@ import {SINGLE_PRODUCT} from '../../apollo/Quries/singleProduct'
 const ViewAllcompaign=(props) => {
     let {history,match}=props;
     let id=match.params && match.params.id ? match.params.id : "";
-    // const {loading , data} = useQuery(SINGLE_PRODUCT(id));
-    // console.log(data && data)  
+
     return (
         <>
             <div className="container-fluid Table-for-administrator-main-div">

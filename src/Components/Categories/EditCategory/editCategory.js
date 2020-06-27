@@ -16,6 +16,7 @@ const EidtCategory = (props) => {
     const [renderData, setRenderData] = useState();
     const [buttonText, setButtonText] = useState("Update");
 
+    // method for editing category
     const editData = (event) => {
         event.preventDefault();
         setButtonText("Updating...")
@@ -30,6 +31,7 @@ const EidtCategory = (props) => {
         })
     }
 
+    // get all data and store in a state
     useEffect(() => {
         setRenderData(data && data.SingleCategory);
     }, [data])

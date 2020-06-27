@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_CATEGORY } from '../../apollo/Mutations/createCategory'
-// import publicIp from 'public-ip'
-// import ipInt from 'ip-to-int'
 import { getParams } from '../../functions'
 
 const AddCategory = (props) => {
@@ -13,15 +11,9 @@ const AddCategory = (props) => {
     const [addCategory] = useMutation(CREATE_CATEGORY);
     const [name, setName] = useState("");
     const [description, setDiscription] = useState("");
-    // const [ipAddress, setIpAddress] = useState("");
     const [buttonText, setButtonText] = useState("Create");
 
-    // useEffect(() => {
-    //     publicIp.v4().then(ip => {
-    //         setIpAddress(ip);
-    //     })
-    // }, [])
-
+    // method for creating category
     const createCategories = (event) => {
         event.preventDefault();
         setButtonText("Creating...")
@@ -29,7 +21,6 @@ const AddCategory = (props) => {
             variables: {
                 Name: name,
                 description: description,
-                // CreatedIp: ipInt(ipAddress).toInt(),
                 Status: "Enable"
             }
         }).then(res => {

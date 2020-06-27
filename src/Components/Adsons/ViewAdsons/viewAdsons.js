@@ -20,6 +20,7 @@ const ViewAdson = (props) => {
     const [totalCustomers, setTotalCustomers] = useState([]);
     const [page, setPage] = useState(1);
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/adson?page=" + (parseInt(value.selected) + 1));
@@ -36,6 +37,7 @@ const ViewAdson = (props) => {
         })
     }
 
+    // Get all data and store in a state
     useEffect(() => {
         allPages({
             variables: {
@@ -49,6 +51,8 @@ const ViewAdson = (props) => {
             setTotalCustomers(response && response.data.getAdsons && response.data.getAdsons.totaladsons);
         })
     }, [])
+ 
+    // method for deleting data
     const deleteAdsons = (id) => {
         deleteAdson({
             variables: {

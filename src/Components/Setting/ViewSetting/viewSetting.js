@@ -23,11 +23,13 @@ const ViewSetting = (props) => {
     const [search, setSearch] = useState([]);
     const [settingType, setSettingType] = useState("")
 
+    // method for searching fieldName
     const searchHandler = (value) => {
         let resultData = users ? users.filter(sin => sin.fieldName.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
         setSearch(resultData)
     }
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/setting?page=" + (parseInt(value.selected) + 1));
@@ -62,6 +64,7 @@ const ViewSetting = (props) => {
         })
     }, [])
 
+    // method for deleting data
     const deleteSettings = (id) => {
         deleteSetting({
             variables: {
@@ -73,7 +76,7 @@ const ViewSetting = (props) => {
         })
     }
 
-
+    // search setting on the basis of setting type
     const typeHandler = (value) => {
         switch (value) {
             case "": {

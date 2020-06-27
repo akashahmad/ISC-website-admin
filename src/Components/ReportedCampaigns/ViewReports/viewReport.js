@@ -20,6 +20,7 @@ const ViewCoupan = (props) => {
     const [totalCoupons, setTotalCoupons] = useState([]);
     const [page, setPage] = useState(1);
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/all-reported-campaigns?page=" + (parseInt(value.selected) + 1));

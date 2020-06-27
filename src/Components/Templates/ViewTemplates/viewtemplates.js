@@ -21,6 +21,7 @@ const ViewTemplate = (props) => {
     const [totalCustomers, setTotalCustomers] = useState([]);
     const [page, setPage] = useState(1);
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/tempelates?page=" + (parseInt(value.selected) + 1));
@@ -50,6 +51,8 @@ const ViewTemplate = (props) => {
             setTotalCustomers(response && response.data.Templates && response.data.Templates.totalTemplate);
         })
     }, [])
+
+    // method for deleting template
     const deleteTemplates = (Id) => {
         deleteTemplate({
             variables: {
@@ -85,7 +88,6 @@ const ViewTemplate = (props) => {
                                         <th>Title</th>
                                         <th>Subject</th>
                                         <th>Email</th>
-                                        {/* <th>From Text</th> */}
                                         <th>Status</th>
                                         <th>Type</th>
                                         <th>Action</th>
@@ -97,7 +99,6 @@ const ViewTemplate = (props) => {
                                             <td>{single.Title ? single.Title : "-"}</td>
                                             <td>{single.Subject ? single.Subject : "-"}</td>
                                             <td>{single.Email ? single.Email : "-"}</td>
-                                            {/* <td>{single.FromText ? single.FromText : "-"}</td> */}
                                             <td>{single.Status ? single.Status : "-"}</td>
                                             <td>{single.Type ? single.Type : "-"}</td>
                                             <td className="template-btn">

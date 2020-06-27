@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import Image from '../../../assets/Images/admin.png'
 import { withRouter } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_STOREFRONT } from '../../apollo/Mutations/createStorefront'
@@ -29,6 +28,7 @@ const AddStoreFront = (props) => {
         })
     }, [])
 
+    // method for creating storefront
     const onSubmit = (event) => {
         event.preventDefault();
         setButtonText("Creating...")

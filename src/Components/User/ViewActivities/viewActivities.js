@@ -18,6 +18,8 @@ const ViewActivities = (props) => {
     const [totalPage, setTotalPage] = useState(1);
     const [data] = useMutation(VIEW_MUTATION);
     const [totalCustomers, setTotalCustomers] = useState("");
+    
+    //method for pagination
     const handlePageClick = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/view-activities?page=" + (parseInt(value.selected) + 1));
@@ -33,6 +35,7 @@ const ViewActivities = (props) => {
                 setTotalCustomers(res && res.data.userActivity && res.data.userActivity.totaluserActivity);
             })
     }
+    
     useEffect(() => {
         data({
             variables: {

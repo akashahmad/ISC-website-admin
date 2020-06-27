@@ -22,11 +22,13 @@ const ViewPages = (props) => {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState([]);
 
+    // method for pagination
     const searchHandler = (value) => {
         let resultData = users ? users.filter(sin => sin.slug.toLowerCase().indexOf(value.toLowerCase()) !== -1) : []
         setSearch(resultData)
     }
 
+    // method for pagination
     const pageHandler = (value) => {
         setPage(parseInt(value.selected) + 1);
         history.push("/pages?page=" + (parseInt(value.selected) + 1));
@@ -59,6 +61,7 @@ const ViewPages = (props) => {
         })
     }, [])
 
+    // method for deleting data
     const deletePages = (id) => {
         deletePage({
             variables: {
