@@ -1,9 +1,9 @@
 import gql from 'graphql-tag'
 
 export const ALL_REPORTED_CAMPAIGNS = gql `
-mutation allReportedCampaign($page:Int,$limit:Int)
+mutation allReportedCampaign($page:Int,$limit:Int,$order:String)
     {
-        allReportedCampaign(page:$page,limit:$limit)
+        allReportedCampaign(page:$page,limit:$limit,order:$order)
         {
         campaigns
         {
