@@ -101,7 +101,7 @@ const ViewCompaign = (props) => {
                 }
             )
                 .then(res => {
-                    // console.log("res", res && res.data && res.data.name);
+                    setTotalCampaigns(res && res.data && res.data.name && res.data.name.length);
                     setSearch(res && res.data && res.data.name);
                     setTotalPages([1]);
                 })

@@ -43,6 +43,7 @@ const ViewUser = (props) => {
                 }
             )
                 .then(res => {
+                    setTotalCustomers(res && res.data && res.data.users && res.data.users.length);
                     setSearch(res && res.data && res.data.users);
                     setTotalPage([1]);
                 })
@@ -81,6 +82,7 @@ const ViewUser = (props) => {
                 }
             )
                 .then(res => {
+                    setTotalCustomers(res && res.data && res.data.users && res.data.users.length);
                     setSearch(res && res.data && res.data.users);
                     setTotalPage([1]);
                 })

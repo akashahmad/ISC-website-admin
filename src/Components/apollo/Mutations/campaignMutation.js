@@ -37,7 +37,7 @@ mutation allCampaignFilters(
         support_count
         reportCount
         recent_reported_date
-        creatorEmail 
+       
       }
       totalPages
       totalCampaigns
@@ -46,3 +46,4 @@ mutation allCampaignFilters(
 
   
 `;
+// creatorEmail 
