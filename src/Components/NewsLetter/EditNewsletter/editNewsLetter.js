@@ -162,7 +162,7 @@ const EditNewsletter = (props) => {
                                             <div className="Form-Inputs-Fields mrg-top-20 mrg-left-50 fnt-poppins">
                                                 <div className="form-group">
                                                     <div>
-                                                        <label >Select Tempelate*</label>
+                                                        <label >Select Template*</label>
                                                     </div>
                                                     <div>
                                                         <select className="mrg-top-10 fnt-poppins"
@@ -267,7 +267,7 @@ const EditNewsletter = (props) => {
                                             />
                                             <label className="label-of-radio" for="radio3">
                                                 <div className="checker"></div>
-                                                    Campaing Users
+                                                    Campaign Users
                                             </label>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@ const EditNewsletter = (props) => {
                                             />
                                             <label className="label-of-radio" for="radio4">
                                                 <div className="checker"></div>
-                                                <div>Campaing Creators</div>
+                                                <div>Campaign Creators</div>
                                             </label>
                                         </div>
                                     </div>

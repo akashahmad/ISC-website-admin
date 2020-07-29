@@ -1,14 +1,15 @@
 import gql from 'graphql-tag';
 
 export const CREATE_ADMIN = gql`
-  mutation createAdmin(        
-                        $Email:String,
-                        $Password:String,
-                        $RoleId:Int,
-                        $Name:String,
-                        $Status:String,
-                        $CreatedDate:DateTime,
-                        $CreatedIp: Long
+  mutation createAdmin(
+                        $Email:String!,
+                        $Password:String!,
+                        $RoleId:Int!,
+                        $Name:String!,
+                        $Status:String!,
+                        $CreatedDate:DateTime!,
+                        $CreatedIp: Int!,
+                        $CreatedBy: Int!
                         )
                        {
     createAdmin (Email:$Email ,
@@ -17,10 +18,9 @@ export const CREATE_ADMIN = gql`
                 Name:$Name,
                 Status:$Status,
                 CreatedDate:$CreatedDate,
-                CreatedIp:$CreatedIp
-                )
+                CreatedIp:$CreatedIp,
+                CreatedBy:$CreatedBy)
                 {
-                   Id     
                    error
                 }
         }
