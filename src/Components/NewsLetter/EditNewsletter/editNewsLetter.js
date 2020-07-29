@@ -369,7 +369,6 @@ const EditNewsletter = (props) => {
                                             </div>
                                         </div>
                                         : ""}
-
                                     {/* buttons */}
                                     <div className="btns-of-add mrg-left-60 mrg-top-30 fnt-poppins">
                                         <span className="cancel-btn-of-form fnt-poppins"
