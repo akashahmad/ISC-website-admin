@@ -15,7 +15,7 @@ export const SINGLE_NEWSLETTER = (Id) => gql`
       campaign_id
       interestId
       campaignName
-      
+      campaign_type      
     }
     getAllIntersts {
         id

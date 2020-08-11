@@ -22,6 +22,9 @@ const AddNewsletter = (props) => {
     const [dateTime, setDateTime] = useState("");
     const [status, setStatus] = useState("");
     const [group, setGroup] = useState("");
+    const [campaignType, setCampaignType] = useState("")
+
+    const [selectHideShow, setSelectHideShow] = useState(false);
     const [hideShow, setHideShow] = useState(false);
     const [hideShowDate, setHideShowDate] = useState(false);
     const [searchHide, setSearchHide] = useState(false);
@@ -34,7 +37,7 @@ const AddNewsletter = (props) => {
     const [selectData, setSelectData] = useState();
     const [searchData, setSearchData] = useState();
     const [searchName, setSearchName] = useState();
-    const [slug,setSlug]=useState("");
+    const [slug, setSlug] = useState("");
 
     useEffect(() => {
         getTemplates().then(res => {
@@ -132,11 +135,12 @@ const AddNewsletter = (props) => {
                     cron_status: "pending",
                     date_created: currentDate,
                     interestId: parseInt(selectData),
-                    campaign_id: parseInt(selectedData)
+                    campaign_id: campaignType !== "" ? 0 : parseInt(selectedData),
+                    campaign_type: campaignType !== "" ? campaignType : "" 
                 }
             }).then(res => {
-                console.log("res", res.data.createnewsletter);
-                history.push("/edit-newsletter/" + res.data.createnewsletter.Id)
+                // console.log("res", res.data.createnewsletter);
+                history.push("/edit-newsletter/" + res.data.createnewsletter.Id);
             }).catch(error => {
                 setButtonText("Create")
             })
@@ -266,10 +270,12 @@ const AddNewsletter = (props) => {
                                             if (searchHide == true) {
                                                 setSearchHide(false)
                                                 setHideShow(false)
+                                                setSelectHideShow(false);
                                             }
                                             else if (searchHide == false) {
                                                 setSearchHide(true)
                                                 setHideShow(false)
+                                                setSelectHideShow(false);
                                                 setGroupValidation(false)
                                                 setGroup(event.target.value)
                                             }
@@ -278,8 +284,32 @@ const AddNewsletter = (props) => {
                                     <label className="label-of-radio" for="radio3">
                                         <div className="checker"></div>
                                         Campaign Users
-                                </label>
+                                    </label>
                                 </div>
+
+                                {/* campaign type radio button */}
+                                <div className="radio-of-group">
+                                    <input className="mrg-top-40" type="radio" id="radio6" name="radio-of-groups"
+                                        value="campaignusers" 
+                                        onChange={event => {
+                                            if (selectHideShow == true) {
+                                                setSearchHide(false)
+                                                setHideShow(false)
+                                            }
+                                            else if (selectHideShow == false) {
+                                                setSelectHideShow(true);
+                                                setSearchHide(false);
+                                                setHideShow(false);
+                                            }
+                                        }}
+                                    />
+                                    <label className="label-of-radio" for="radio6">
+                                        <div className="checker"></div>
+                                        Campaign Type
+                                    </label>
+                                </div>
+
+
                             </div>
                             <div className="radios-of-group mrg-left-50">
                                 <div className="radio-of-group">
@@ -289,6 +319,7 @@ const AddNewsletter = (props) => {
                                             setGroupValidation(false)
                                             setHideShow(false)
                                             setSearchHide(false)
+                                            setSelectHideShow(false);
                                             setGroup(event.target.value)
                                         }}
                                     />
@@ -306,6 +337,7 @@ const AddNewsletter = (props) => {
                                             setGroupValidation(false)
                                             setHideShow(true)
                                             setSearchHide(false)
+                                            setSelectHideShow(false);
                                             setGroup(event.target.value)
                                         }}
                                     />
@@ -365,7 +397,7 @@ const AddNewsletter = (props) => {
                                                     <ul className="has-cursor-pointer seaarch-list" onClick={() => {
                                                         onChageKeyword(single);
                                                     }}>
-                                                        <li className="has-padding-left-10" value={single.Id}>{single.Name +"  | isupportcause.com/campaign/"+single.Slug}</li>
+                                                        <li className="has-padding-left-10" value={single.Id}>{single.Name + "  | isupportcause.com/campaign/" + single.Slug}</li>
                                                     </ul>
                                                 ) : ""}
                                             </div>
@@ -373,6 +405,28 @@ const AddNewsletter = (props) => {
                                     </div>
                                 </div>
                                 : ""}
+
+                            {/* campaign type select option */}
+                            {selectHideShow &&
+                            <div className="Form-Inputs-Fields mrg-top-30 mrg-left-50">
+                                <div className="form-group">
+                                    <div>
+                                        <label className="mrg-top-20 fnt-poppins">Campaign Type</label>
+                                    </div>
+                                    <div>
+                                        <select className="mrg-top-10 fnt-poppins" type="name"
+                                            onChange={event =>setCampaignType(event.target.value)}
+                                        >
+                                            <option value="">Select Campaign Type</option>
+                                            <option value="Support">Support</option>
+                                            <option value="Petition">Petition</option>
+                                            <option value="Pledge">Pledge</option>
+                                            <option value="Fundraiser">Fundraiser</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                             }
                             {/* buttons */}
                             <div className="btns-of-add mrg-left-60 mrg-top-30 fnt-poppins">
                                 <span className="cancel-btn-of-form fnt-poppins"

@@ -21,8 +21,8 @@ const App = (props) => {
             }
         }, 1000);
     }, [location.pathname])
-    return (
 
+    return (
         <WrapRootElement>
             <Provider>
                 <Switch>
