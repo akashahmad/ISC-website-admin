@@ -11,7 +11,8 @@ mutation updatenewsletter(
     $cron_status: String,
     $date_updated: DateTime,
     $interestId: Int,
-    $campaign_id: Int
+    $campaign_id: Int,
+    $campaign_type: String
     )
     {
         updatenewsletter(
@@ -24,7 +25,8 @@ mutation updatenewsletter(
             cron_status:$cron_status,
             date_updated:$date_updated,
             interestId:$interestId,
-            campaign_id:$campaign_id
+            campaign_id:$campaign_id,
+            campaign_type:$campaign_type
             )
             {
                 error

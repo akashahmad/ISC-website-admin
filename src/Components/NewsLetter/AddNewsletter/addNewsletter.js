@@ -135,8 +135,8 @@ const AddNewsletter = (props) => {
                     cron_status: "pending",
                     date_created: currentDate,
                     interestId: parseInt(selectData),
-                    campaign_id: campaignType !== "" ? 0 : parseInt(selectedData),
-                    campaign_type: campaignType !== "" ? campaignType : "" 
+                    campaign_id: parseInt(selectedData),
+                    campaign_type: campaignType ? campaignType : "" 
                 }
             }).then(res => {
                 // console.log("res", res.data.createnewsletter);
@@ -290,7 +290,7 @@ const AddNewsletter = (props) => {
                                 {/* campaign type radio button */}
                                 <div className="radio-of-group">
                                     <input className="mrg-top-40" type="radio" id="radio6" name="radio-of-groups"
-                                        value="campaignusers" 
+                                        value="campaigntype" 
                                         onChange={event => {
                                             if (selectHideShow == true) {
                                                 setSearchHide(false)
@@ -300,6 +300,7 @@ const AddNewsletter = (props) => {
                                                 setSelectHideShow(true);
                                                 setSearchHide(false);
                                                 setHideShow(false);
+                                                setGroup(event.target.value);
                                             }
                                         }}
                                     />

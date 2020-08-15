@@ -33,6 +33,7 @@ const EditNewsletter = (props) => {
     const [searchData, setSearchData] = useState();
     const [newSearch, setNewSearch] = useState();
     const [dateTime, setDatetime] = useState("");
+    const [selectHideShow, setSelectHideShow] = useState(false);
 
     useEffect(() => {
         getTemplates().then(res => {
@@ -54,7 +55,6 @@ const EditNewsletter = (props) => {
         // })
         // setSelectedData(duplicateSelectedIntrestedIds)
         setInterestData(data && data.getAllIntersts);
-        console.log("data && data.getAllIntersts",data && data.getAllIntersts)
         setRenderData(data && data.singlenewsletter ? { ...data.singlenewsletter } : {})
         setSelectTemplate(data && data.singlenewsletter && data.singlenewsletter.Template);
         setNewSearch(data && data.singlenewsletter && data.singlenewsletter.campaign_id ? data.singlenewsletter.campaignName : "")
@@ -111,7 +111,8 @@ const EditNewsletter = (props) => {
                 cron_status: "pending",
                 date_updated: currentDate,
                 interestId: renderData && renderData.group == "interestedusers" ? parseInt(renderData.interestId) : null,
-                campaign_id: renderData && renderData.group == "campaignusers" ? renderData.campaign_id : null
+                campaign_id: renderData.group && renderData.group == "campaignusers" ? renderData.campaign_id : null,
+                campaign_type:renderData.group && renderData.group == "campaigntype" ? renderData.campaign_type : "" 
             }
         }).then(res => {
             setButtonText("Updated")
@@ -250,19 +251,11 @@ const EditNewsletter = (props) => {
                                         <div className="radio-of-group">
                                             <label>Select Group*</label>
                                             <input className="mrg-top-40" type="radio" id="radio3" name="radio-of-groups"
-                                                checked={renderData && renderData.group == "campaignusers"}
+                                                checked={renderData.group == "campaignusers"}
                                                 onChange={event => {
-                                                    if (searchHide == true) {
-                                                        setSearchHide(false)
-                                                        setHideShow(false)
-                                                    }
-                                                    else if (searchHide == false) {
-                                                        setSearchHide(true)
-                                                        setHideShow(false)
-                                                        let duplicateData = { ...renderData }
-                                                        duplicateData.group = "campaignusers"
-                                                        setRenderData({ ...duplicateData })
-                                                    }
+                                                    let duplicateData = { ...renderData }
+                                                    duplicateData.group = "campaignusers"
+                                                    setRenderData({ ...duplicateData })
                                                 }}
                                             />
                                             <label className="label-of-radio" for="radio3">
@@ -271,12 +264,27 @@ const EditNewsletter = (props) => {
                                             </label>
                                         </div>
                                     </div>
+
+                                    {/* campaign type radio button */}
+                                    <div className="radio-of-group mrg-left-50">
+                                        <input className="mrg-top-40" type="radio" id="radio6" name="radio-of-groups"
+                                            checked={renderData.group == "campaigntype"}
+                                            onChange={event => {
+                                                let duplicateData = { ...renderData }
+                                                duplicateData.group = "campaigntype"
+                                                setRenderData({ ...duplicateData })
+                                            }}
+                                        />
+                                        <label className="label-of-radio" for="radio6">
+                                            <div className="checker"></div>
+                                        Campaign Type
+                                    </label>
+                                    </div>
                                     <div className="radios-of-group mrg-left-50">
                                         <div className="radio-of-group">
                                             <input type="radio" id="radio4" name="radio-of-groups"
                                                 checked={renderData && renderData.group == "campaigncreators"}
                                                 onChange={event => {
-                                                    setHideShow(false)
                                                     let duplicateData = { ...renderData }
                                                     duplicateData.group = "campaigncreators"
                                                     setRenderData({ ...duplicateData })
@@ -293,8 +301,6 @@ const EditNewsletter = (props) => {
                                             <input type="radio" id="radio5" name="radio-of-groups"
                                                 checked={renderData && renderData.group == "interestedusers"}
                                                 onChange={event => {
-                                                    setHideShow(true)
-                                                    setSearchHide(false)
                                                     let duplicateData = { ...renderData }
                                                     duplicateData.group = "interestedusers"
                                                     setRenderData({ ...duplicateData })
@@ -342,7 +348,7 @@ const EditNewsletter = (props) => {
                                         </div>
                                         : ""}
                                     {/* search input field */}
-                                    {renderData && renderData.group == "campaignusers" ?
+                                    {renderData.group == "campaignusers" ?
                                         <div className="Form-Inputs-Fields mrg-top-30 mrg-left-50">
                                             <div className="form-group">
                                                 <div>
@@ -361,10 +367,36 @@ const EditNewsletter = (props) => {
                                                                 onSelectCampaign(single);
 
                                                             }}>
-                                                                <li className="has-padding-left-10" value={single.Id}>{single.Name +"  | isupportcause.com/campaign/"+single.Slug}</li>
+                                                                <li className="has-padding-left-10" value={single.Id}>{single.Name + "  | isupportcause.com/campaign/" + single.Slug}</li>
                                                             </ul>
                                                         ) : ""}
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        : ""}
+                                    {/* campaign type select option */}
+                                    { renderData && renderData.group == "campaigntype" ?
+                                        <div className="Form-Inputs-Fields mrg-top-30 mrg-left-50">
+                                            <div className="form-group">
+                                                <div>
+                                                    <label className="mrg-top-20 fnt-poppins">Campaign Type</label>
+                                                </div>
+                                                <div>
+                                                    <select className="mrg-top-10 fnt-poppins" type="name"
+                                                        value={renderData && renderData.campaign_type}
+                                                        onChange={event => {
+                                                            let duplicateData = { ...renderData }
+                                                            duplicateData.interestId = event.target.value
+                                                            setRenderData({ ...duplicateData })
+                                                        }}
+                                                    >
+                                                        <option value="">Select Campaign Type</option>
+                                                        <option value="Support">Support</option>
+                                                        <option value="Petition">Petition</option>
+                                                        <option value="Pledge">Pledge</option>
+                                                        <option value="Fundraiser">Fundraiser</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
