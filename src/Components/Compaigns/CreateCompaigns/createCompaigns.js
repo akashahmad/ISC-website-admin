@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import InputColor from 'react-input-color';
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
-import { campaignBanner_baseurl, campaignLogo_baseurl, apiPath } from '../../../config'
+import { campaignBanner_baseurl, campaignLogo_baseurl, apiPath } from '../../../Config'
 import { CREATE_CAMPAIGN } from '../../apollo/Mutations/createCampaign'
 import { useMutation, useQuery } from '@apollo/react-hooks'
 import { CAMPAIGN_CATEGORIES } from '../../apollo/Quries/campaignCategories';

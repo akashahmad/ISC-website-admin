@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import cancelImg from '../../../assets/Images/cancel.png'
 import axios, { CancelToken } from "axios";
-import { apiPath } from '../../../config'
+import { apiPath } from '../../../Config'
 import { CREATE_NEWSLETTER } from '../../apollo/Mutations/createNewsletter'
 import { useMutation, useQuery } from '@apollo/react-hooks'
 import { NEWSLETTERS_TEMPLATES } from '../../apollo/Mutations/getAllNewsletterTemplates'

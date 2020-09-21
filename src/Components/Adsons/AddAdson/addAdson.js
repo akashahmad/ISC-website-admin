@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_ADSON } from '../../apollo/Mutations/createAdson'
 import axios, { CancelToken } from "axios";
-import { apiPath } from '../../../config'
+import { apiPath } from '../../../Config'
 import { getParams } from '../../functions'
 
 const AddAdson = (props) => {

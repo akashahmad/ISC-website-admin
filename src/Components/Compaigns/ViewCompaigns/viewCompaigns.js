@@ -12,8 +12,8 @@ import { DELETE_CAMPAIGN } from '../../apollo/Mutations/deleteCampaign'
 import cookie from 'react-cookies'
 import ContentLoader from 'react-content-loader'
 import axios, { CancelToken } from "axios";
-import { apiPath } from '../../../config'
-import { isupportcauseCampaign } from '../../../config'
+import { apiPath } from '../../../Config'
+import { isupportcauseCampaign } from '../../../Config'
 let cancel;
 
 const ViewCompaign = (props) => {

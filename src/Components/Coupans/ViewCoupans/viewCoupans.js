@@ -10,7 +10,7 @@ import Loader from '../../commonComponents/Loader/loader'
 import { DELETE_COUPON } from '../../apollo/Mutations/deleteCoupon'
 import { getParams } from '../../functions/index'
 import ContentLoader from 'react-content-loader'
-import { isupportcauseCampaign } from '../../../config'
+import { isupportcauseCampaign } from '../../../Config'
 
 const ViewCoupan = (props) => {
     let { history, location } = props;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import ReactPaginate from "react-paginate";
-import { viewActivities_img } from '../../../config'
+import { viewActivities_img } from '../../../Config'
 import { useMutation } from '@apollo/react-hooks';
 import { VIEW_MUTATION } from '../../apollo/Mutations/viewActivitiesMutation'
 import Loader from '../../commonComponents/Loader/loader'

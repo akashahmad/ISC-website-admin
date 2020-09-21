@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks'
 import { CREATE_COUPON } from '../../apollo/Mutations/createCoupan'
-import { isupportcauseCampaign } from '../../../config'
+import { isupportcauseCampaign } from '../../../Config'
 import { getParams } from '../../functions/index'
 
 const AddCoupan = (props) => {

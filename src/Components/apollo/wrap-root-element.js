@@ -3,7 +3,7 @@ import React from 'react'
 import {ApolloLink} from "apollo-link";
 import {ApolloProvider} from '@apollo/react-hooks';
 import {ApolloClient, InMemoryCache, HttpLink}from 'apollo-boost';
-import {apiPath} from '../../config'
+import {apiPath} from '../../Config'
 import fetch from 'isomorphic-unfetch';
 import cookie from 'react-cookies'
 

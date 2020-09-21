@@ -7,7 +7,7 @@ import { SINGLE_NEWSLETTER } from '../../apollo/Quries/singleNewsletter'
 import Loader from '../../commonComponents/Loader/loader'
 import { UPDATE_NEWSLETTER } from '../../apollo/Mutations/updateNewsletter'
 import axios, { CancelToken } from "axios";
-import { apiPath } from '../../../config'
+import { apiPath } from '../../../Config'
 import Style from '../AddNewsletter/style'
 import { standardDate } from '../../functions/index'
 import { getParams } from '../../functions/index'

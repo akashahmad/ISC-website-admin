@@ -5,9 +5,9 @@ import ReactPaginate from "react-paginate";
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { ADMIN_DASHBOARD } from '../apollo/Quries/dashboardQurie'
 import { DASHBOARD_MUTATION } from '../apollo/Mutations/dashboardMutation'
-import { overlays, camapignImage } from '../../config'
+import { overlays, camapignImage } from '../../Config'
 import ContentLoader from 'react-content-loader'
-import { isupportcauseCampaign } from '../../config'
+import { isupportcauseCampaign } from '../../Config'
 
 const Dashboard = (props) => {
   let { history } = props;

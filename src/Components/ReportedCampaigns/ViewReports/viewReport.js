@@ -6,7 +6,7 @@ import {ALL_REPORTED_CAMPAIGNS} from '../../apollo/Mutations/reportedMutation'
 import ReactPaginate from "react-paginate";
 import {getParams} from '../../functions/index'
 import ContentLoader from 'react-content-loader'
-import {isupportcauseCampaign} from '../../../config'
+import {isupportcauseCampaign} from '../../../Config'
 
 
 const ViewCoupan = (props) => {

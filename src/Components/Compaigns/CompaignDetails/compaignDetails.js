@@ -3,7 +3,7 @@ import InputColor from 'react-input-color';
 import { withRouter } from 'react-router-dom'
 import { SINGLE_CAMPAIGN } from '../../apollo/Quries/singleCampaign'
 import { useQuery } from '@apollo/react-hooks';
-import { campaignBanner_baseurl, overlays } from '../../../config'
+import { campaignBanner_baseurl, overlays } from '../../../Config'
 import { standardDate } from '../../functions'
 import Loader from '../../commonComponents/Loader/loader'
 import { getParams } from '../../functions'

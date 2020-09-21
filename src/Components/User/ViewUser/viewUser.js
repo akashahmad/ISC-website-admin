@@ -10,7 +10,7 @@ import ReactPaginate from "react-paginate";
 import { getParams } from '../../functions/index'
 import ContentLoader from 'react-content-loader'
 import axios, { CancelToken } from "axios";
-import { apiPath } from '../../../config'
+import { apiPath } from '../../../Config'
 let cancel;
 let cancel2;
 

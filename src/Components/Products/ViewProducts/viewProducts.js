@@ -8,7 +8,7 @@ import { PRODUCTS } from '../../apollo/Mutations/productsMutation'
 import { DELETE_PRODUCT } from '../../apollo/Mutations/deleteProduct'
 import Loader from '../../commonComponents/Loader/loader'
 import ReactPaginate from "react-paginate";
-import { productImages } from '../../../config'
+import { productImages } from '../../../Config'
 import { getParams } from '../../functions/index'
 import ContentLoader from 'react-content-loader'
 
