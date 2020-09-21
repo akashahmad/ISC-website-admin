@@ -8,8 +8,8 @@ export const CREATE_ADMIN = gql`
                         $Name:String!,
                         $Status:String!,
                         $CreatedDate:DateTime!,
-                        $CreatedIp: Int!,
-                        $CreatedBy: Int!
+                        $CreatedIp: Long,
+                        $CreatedBy: Int
                         )
                        {
     createAdmin (Email:$Email ,

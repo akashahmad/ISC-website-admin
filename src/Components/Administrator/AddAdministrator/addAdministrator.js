@@ -9,7 +9,7 @@ import { getParams } from '../../functions'
 
 const AddAdministrator = (props) => {
 
-    let { history , location } = props;
+    let { history, location } = props;
     let path = getParams(location.search);
     const [name, setName] = useState([]);
     const [email, setEmail] = useState([]);
@@ -60,7 +60,7 @@ const AddAdministrator = (props) => {
                     setBtnText("Create")
                 }
                 else {
-                    history.push("/edit-administrator/" + res.data.createAdmin.Id)
+                    history.push("/administrator")
                 }
             }).catch(error => {
                 setBtnText("Create")
@@ -84,7 +84,7 @@ const AddAdministrator = (props) => {
                     setBtnText("Create")
                 }
                 else {
-                    history.push("/edit-administrator/" + res.data.createAdmin.Id)
+                    history.push("/administrator")
                 }
             }).catch(error => {
                 setBtnText("Create")

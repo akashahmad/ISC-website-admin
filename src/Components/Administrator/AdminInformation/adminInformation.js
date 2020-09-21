@@ -13,7 +13,6 @@ const AdminInformation = (props) => {
     let id = match.params && match.params.id ? match.params.id : ""
     const { loading, data } = useQuery(SINGLE_ADMIN(id))
     const [ipAddress, setIpAddress] = useState("");
-    console.log(data && data)
     let date = data && data.singleadminbyId && data.singleadminbyId.CreatedDate;
     date = standardDate(date).standardDate;
     let getDate = data && data.singleadminbyId && data.singleadminbyId.Activity && data.singleadminbyId.Activity.ModifiedDate;
