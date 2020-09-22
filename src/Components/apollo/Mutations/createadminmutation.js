@@ -21,6 +21,7 @@ export const CREATE_ADMIN = gql`
                 CreatedIp:$CreatedIp,
                 CreatedBy:$CreatedBy)
                 {
+                                                
                    error
                 }
         }

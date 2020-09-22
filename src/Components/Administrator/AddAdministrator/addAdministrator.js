@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks';
-import { CREATE_ADMIN } from '../../apollo/Mutations/createAdminMutation'
+import { CREATE_ADMIN } from '../../apollo/Mutations/createadminmutation'
 import uuid from 'uuid'
 import publicIp from 'public-ip'
 import ipInt from 'ip-to-int'
