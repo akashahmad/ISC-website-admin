@@ -32,7 +32,7 @@
     "react-input-color": "^2.0.28",
     "react-paginate": "^6.3.2",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "usa-states": "0.0.5",
     "uuid": "^3.4.0"
   },
